@@ -109,30 +109,37 @@ header {
 }
 
 .hero {
-        width: min(90%, 1200px);
-    margin-inline: auto;
-    
+      width: 90%;
+   margin: 0 auto;
+    max-width: 1200px;  
     text-align: center;
     width: 100%;
     height: 100%;
-    margin: 0px 20%;
+    
     word-spacing: 5px;
     align-items: center;
     justify-content: center;
 
 }
 
-
+.hero .hero-m {
+    display: none;
+}
 .hero h1 {
+   
+    margin: 0 auto;
+    line-height: 1.5;
+    text-wrap: balance;
+
     color: #F8FAFC;
-    line-height: 1.3;
-    font-size: 75px;
+   
+    font-size: 60px;
     font-family: "DM Serif Display", serif;
-    margin: 25px 0px 25px;
-    font-weight: 400;
+     font-weight: 400;
 }
 
 .hero h1 span {
+       text-wrap: balance;
     background: linear-gradient(90deg, #00D4FF, #458ac6);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -140,7 +147,7 @@ header {
 
 .hero p {
     font-family: "Inter", sans-serif;
-    margin: 0px 5% 8%;
+    margin: 0px 5px 24px 5px;
     font-size: 1rem;
     font-weight: 500;
     color: #b3b7c1bd;
@@ -186,30 +193,31 @@ header {
 .stats-section {
          width: 100%;
     height: auto; 
+ background-color: #333c4b;
+    border-top: 1px solid #0B1220;
+    border-bottom: 1px solid #0B1220;;
+
+
 
 }
 .stats-section .text-box  {
+    width: 90%;
     height: 100px;
-            background-color: #333c4b;
-  border-radius: 20px;
-            font-family: serif;
-  margin: 0px 80px;
+   margin: 0px auto;
   padding: 24px 24px;
    display: flex;
    justify-content: space-between;
-   border: 2px solid #0B1220;
     
 }
 .text-center {
+      
+      
      font-family: "Electrolize", sans-serif;
     height: auto;
       width: 250px;
       align-items: center;
-    justify-self: space-around;
-    height: auto;
-   
+    justify-self: space-around;  
     text-align: center;
-     
      gap: 30px;
     
 }
@@ -277,30 +285,39 @@ header {
     }
 
     .hero-section {
-        padding: 160px 12px;
+        padding: 140px 12px;
     }
+ 
+    .hero .hero-m{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    cursor: pointer;
+    color:#00D4FF;
+    margin-bottom: 50px;
+    
 
-    .hero {
-     
-        width:calc(100vh - 70px);
-        height: 100%;
-        margin: 0px 50px;
+     }
+     .hero-m span {
+      border: 1px solid #00D4FF;
+    padding: 0.5vw 1vw;
+    border-radius: 8px;
     }
 
     .hero h1 {
-        color: #F8FAFC;
-        font-size: 5vh;
-        line-height: 1.5;
-        margin: 0px;
+       font-size: 2.3rem;
+       margin-bottom: 20px;
     }
 
     .hero p {
         width: 90%;
-        margin: 30px 0px;
-        font-size: 1em;
+       margin:  0px 0px 40px;
+        font-size: 0.8rem;
     }
 
     .button {
+        font-size: 14px;
         display: flex;
         flex-direction: column;
         gap: 15px;
@@ -311,11 +328,30 @@ header {
         padding: 10px 20px;
         border-radius: 13px;
     }
+    .stats-section {
+        width: 100%;
+          
+    }
+   .stats-section .text-box {
+       width: 82%;
+    height: 160px;
+  border-radius: 0px;
+  padding: 12px 30px;
+  gap: 10px;
+   display:grid;
+     grid-template-columns: 1fr 1fr;
+
+ 
+   border: 1px solid #0B1220;
+     }
+    .text-center {
+         gap:0px;
+    }
 
       
 
 
-
+}
 
 /* Small Mobile */
 @media (max-width: 480px) {
@@ -343,15 +379,16 @@ header {
     }
 
     .hero h1 {
-         font-size: 3rem;
-        line-height: 1.4;
-        margin: 0px;
+       
+     text-wrap: balance;
+    font-size: 1.3rem;
+      margin-bottom: 10px;
     }
 
     .hero p {
         width: 90%;
         margin: 20px 0px;
-        font-size: 0.7rem;
+        font-size: 0.6rem;
         line-height: 18px;
     }
 
@@ -366,6 +403,7 @@ header {
         padding: 8px 16px;
         border-radius: 30px;
     }
+
 
    
 }
