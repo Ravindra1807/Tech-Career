@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=DM+Serif+Display:ital@0;1&family=Electrolize&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+    <title>Cybersecurity - TechCareer Explorer</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=DM+Serif+Display:ital@0;1&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=DM+Serif+Display:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=DM+Serif+Display:ital@0;1&family=Electrolize&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121e37;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* ============ HEADER & NAVIGATION ============ */
+        header {
+            height: 80px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            font-family: 'Space Mono', monospace;
+            background-color: #0B1220;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #4f5a6a;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+        }
+
+        .head-icon {
+            color: #F8FAFC;
+            cursor: pointer;
+            gap: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .image-icon {
+            display: flex;
+            align-items: center;
+        }
+
+        .image-icon img {
+            border: 1px solid #8aa2bbac;
+            border-radius: 10px;
+        }
+
+        .nav-left {
+            font-size: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .navbar {
+            list-style: none;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .nav-one {
+            color: #F8FAFC;
+        }
+
+        .nav-other {
+            color: #acbfd2ac;
+        }
+
+        .nav-other:hover {
+            color: #F8FAFC;
+        }
+
+        .nav-one,
+        .nav-other,
+        .head-right .nav-right {
+            cursor: pointer;
+            background-color: rgba(66, 68, 80, 0.331);
+            padding: 0.5vw 1vw;
+            border: 1px solid gray;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .head-right {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            cursor: pointer;
+            color: #F8FAFC;
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 25px;
+            background: none;
+            border: none;
+            color: aliceblue;
+            cursor: pointer;
+        }
+
+        /* ======================== DROPDOWN ======================== */
+        .dropdown {
+            position: relative;
+            list-style: none;
+        }
+
+        .dropdown .nav-other {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .dropdown .fa-chevron-down {
+            font-size: 10px;
+            transition: transform 0.25s ease;
+        }
+
+        .dropdown.open .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            list-style: none;
+            position: absolute;
+            top: calc(100% + 12px);
+            right: 0px;
+            text-align: center;
+            min-width: 230px;
+            background-color: #0B1220;
+            border: 1px solid #1E293B;
+            border-radius: 10px;
+            padding: 16px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            gap: 10px 24px;
+            max-height: 70vh;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #2c3650 transparent;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px);
+            transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+        }
+
+        .dropdown-menu::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .dropdown-menu::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .dropdown-menu::-webkit-scrollbar-thumb {
+            background-color: #2c3650;
+            border-radius: 8px;
+        }
+
+        .dropdown-menu::-webkit-scrollbar-thumb:hover {
+            background-color: #dc3545;
+        }
+
+        .dropdown.open .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu .menu-group-title {
+            grid-column: 1 / -1;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #dc3545;
+            margin: 8px 0 2px;
+            border-bottom: 1px solid #1E293B;
+            padding-bottom: 6px;
+        }
+
+        .dropdown-menu .menu-group-title:first-child {
+            margin-top: 0;
+        }
+
+        .dropdown-menu li {
+            list-style: none;
+        }
+
+        .dropdown-menu li a {
+            display: block;
+            padding: 6px 8px;
+            border-radius: 6px;
+            color: #c8ced8;
+            text-decoration: none;
+            font-size: 13px;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .dropdown-menu li a:hover,
+        .dropdown-menu li a:active {
+            background-color: #8b3a3a;
+            color: #F8FAFC;
+        }
+
+        /* ============ MAIN CONTAINER ============ */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ============ HERO SECTION ============ */
+        .hero {
+            color: white;
+            position: static;
+            margin-top: 80px;
+            top: 90px;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-family: "DM Serif Display", serif;
+            margin-bottom: 20px;
+            color: #dc3545;
+            border-bottom: 1px solid #dc3545;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .hero-button {
+            background-color: white;
+            color: #dc3545;
+            padding: 12px 30px;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .hero-button:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* ============ SECTION STYLING ============ */
+        section {
+            background-color: #f9f9f9;
+            margin: 30px 0;
+            padding: 40px 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 3px solid #dc3545;
+            padding-bottom: 15px;
+        }
+
+        h3 {
+            color: #dc3545;
+            font-size: 22px;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+
+        /* ============ CAREER CARDS ============ */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background-color: rgb(207, 222, 228);
+            border: 1px solid #727475cb;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .card h3 {
+            color: #dc3545;
+            margin-top: 0;
+        }
+
+        .card p {
+            color: #666;
+            margin: 15px 0;
+        }
+
+        .tech-list {
+            display: inline-block;
+            text-align: left;
+        }
+
+        .tech-list li {
+            background-color: #ffe7e7;
+            border-left: 4px solid #dc3545;
+            padding: 8px 12px;
+            margin: 5px 0;
+            border-radius: 3px;
+        }
+
+        /* ============ ROLE INFO SECTIONS ============ */
+        .role-info {
+            background-color: #ffebee;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 5px solid #dc3545;
+            border-radius: 3px;
+        }
+
+        .role-info h4 {
+            color: #dc3545;
+            margin-bottom: 15px;
+        }
+
+        .role-info ul {
+            margin-left: 20px;
+        }
+
+        .role-info li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .salary-box {
+            background-color: #dc3545;
+            color: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .salary-box .label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .salary-box .amount {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        /* ============ SKILLS COMPARISON TABLE ============ */
+        .table-wrapper {
+            overflow-x: auto;
+            border-radius: 5px;
+        }
+
+        .table-wrapper::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .table-wrapper::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .table-wrapper::-webkit-scrollbar-thumb {
+            background: #dc3545;
+            border-radius: 10px;
+        }
+
+        .table-wrapper::-webkit-scrollbar-thumb:hover {
+            background: #a02830;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            min-width: 600px;
+        }
+
+        table thead {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        table th,
+        table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        table tbody tr:hover {
+            background-color: #ffe7e7;
+        }
+
+        table td:not(:first-child) {
+            text-align: center;
+        }
+
+        .checkmark {
+            color: green;
+            font-weight: bold;
+        }
+
+        .cross {
+            color: red;
+            font-weight: bold;
+        }
+
+        /* ============ ROADMAP ============ */
+        .roadmap-list {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .roadmap-list ol {
+            margin-left: 30px;
+        }
+
+        .roadmap-list li {
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #ffd6d6;
+            border-left: 4px solid #dc3545;
+            padding-left: 15px;
+            border-radius: 3px;
+        }
+
+        /* ============ TECHNOLOGY GRID ============ */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .tech-item {
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #dc3545;
+        }
+
+        .tech-item:hover {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        /* ============ PROJECT IDEAS ============ */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .project-item {
+            background-color: #ffe7e7;
+            padding: 20px;
+            border: 1px solid #dc3545;
+            border-radius: 5px;
+            text-align: center;
+            color: #dc3545;
+            font-weight: bold;
+        }
+
+        .project-item:hover {
+            background-color: #dc3545;
+            color: white;
+        }
+ .resources {
+
+          background: #fff;
+          padding: 25px;
+          margin-top: 30px;
+          border-radius: 12px;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      }
+
+      .resources h3 {
+          margin-bottom: 15px;
+          color: #dc3545;
+          font-size: 1.3rem;
+      }
+
+      .resources ul {
+
+          list-style: none;
+          padding: 0;
+          margin-bottom: 25px;
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 15px;
+      }
+
+      .resources ul li {
+          margin-bottom: 12px;
+      }
+
+      .resources ul li a {
+          display: block;
+          text-decoration: none;
+          color: #333;
+          background: #f9d2d5;
+          padding: 12px 15px;
+          border-radius: 8px;
+          border-left: 4px solid #dc3545;
+          border-right: 4px solid #dc3545;
+          transition: all 0.3s ease;
+      }
+
+      .resources ul li a:hover {
+          text-decoration: underline;
+      }
+        /* ============ FAQ ============ */
+        .faq-item {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #dc3545;
+            border-radius: 3px;
+        }
+
+        .faq-item h4 {
+            color: #dc3545;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .faq-item p {
+            color: #555;
+            margin-left: 20px;
+        }
+
+        /* ============ FOOTER ============ */
+        .footer {
+            background: #020617;
+            padding-top: 50px;
+            border-top: 1px solid rgba(255, 255, 255, .1);
+            color: whitesmoke;
+        }
+
+        .footer-container {
+            width: 90%;
+            margin: auto;
+            padding: 0px 80px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            row-gap: 30px;
+            column-gap: 100px;
+        }
+
+        .footer-box h3,
+        .footer-box h2 {
+            margin-bottom: 15px;
+        }
+
+        .footer-box ul {
+            list-style: none;
+        }
+
+        .footer-box ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-box a {
+            color: #cbd5e1;
+            text-decoration: none;
+        }
+
+        .footer-box .U h2 {
+            color: #dc3545;
+            margin: 20px 0px;
+        }
+
+        .footer-box a:hover {
+            color: #ff6b7a;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, .1);
+        }
+
+        @media (max-width: 1020px) {
+            .head-right {
+                display: none;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+                row-gap: 30px;
+                column-gap: 90px;
+            }
+        }
+
+        /* ============ RESPONSIVE DESIGN ============ */
+        @media (max-width: 768px) {
+            header {
+                height: 70px;
+                padding: 0.5rem 1rem;
+            }
+
+            .image-icon img {
+                height: 50px;
+                width: 50px;
+            }
+
+            .head-right {
+                display: none;
+            }
+
+            .navbar {
+                display: none;
+                position: absolute;
+                top: 70px;
+                right: 10px;
+                left: 10px;
+                padding: 15px;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 8px;
+                border-radius: 8px;
+                background-color: #0B1220;
+                border: 1px solid #1E293B;
+                font-family: 'Courier New', Courier, monospace;
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            }
+
+            .navbar.active {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-one,
+            .nav-other {
+                background: none;
+                border: none;
+                width: 100%;
+                justify-content: space-between;
+                padding: 8px 4px;
+                color: #cbd5e1;
+            }
+
+            .dropdown {
+                width: 100%;
+            }
+            .resources ul{
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .dropdown-menu {
+                position: static;
+                min-width: 100%;
+                grid-template-columns: 1fr;
+                margin-top: 8px;
+                transform: none !important;
+                box-shadow: none;
+                max-height: 50vh;
+                overflow-y: auto;
+                display: none;
+                opacity: 1;
+                visibility: visible;
+                transition: none;
+            }
+
+            .dropdown.open .dropdown-menu {
+                display: grid;
+            }
+
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .tech-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+              .hero p {
+            font-size: 15px;
+         }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            .footer-container {
+                gap: 40px;
+                font-size: 13px;
+            }
+
+            .table-wrapper {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            table {
+                min-width: 700px;
+            }
+
+            table th,
+            table td {
+                padding: 10px 8px;
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                height: 60px;
+                padding: 0.5rem 1rem;
+            }
+
+            .image-icon img {
+                height: 40px;
+                width: 40px;
+            }
+
+            .navbar {
+                top: 62px;
+            }
+
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+             .resources ul{
+                grid-template-columns: 1fr;
+            }
+            nav a {
+                margin: 5px 10px;
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 24px;
+            }
+
+            .hero p {
+                font: 12px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+             .roadmap-list {
+                padding-left: 0px;
+                padding-right:  0px;
+            }
+
+            .table-wrapper {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                margin: 20px -20px;
+                padding: 0 20px;
+            }
+
+            table {
+                font-size: 12px;
+                min-width: 650px;
+            }
+
+            table th,
+            table td {
+                padding: 8px 6px;
+                font-size: 11px;
+            }
+
+            .resources {
+                padding: 20px;
+                padding: 0px 20px;
+                height: auto;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .footer-box .U {
+                text-align: center;
+            }
+
+            .footer-box .U h2 {
+                font-size: 25px;
+            }
+
+            .footer-box ul,
+            .footer-box p {
+                font-size: 12px;
+                line-height: 22px;
+            }
+
+            .footer-bottom {
+                font-size: 12px;
+                padding-top: 5px;
+                margin: 0px 50px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ============ HEADER ============ -->
+    <header>
+        <a class="head-icon" href="#">
+            <div class="image-icon">
+                <img src="imageS/Icon.png" alt="TechCareer Explorer logo" height="60" width="60">
+            </div>
+            <span class="nav-left">TechCareer·Explorer</span>
+        </a>
+
+        <button class="menu-btn" aria-label="Toggle navigation menu">
+            <i class="fa fa-cog"></i>
+        </button>
+
+        <ul class="navbar" id="navLinks">
+            <li>
+                <a class="nav-one" href="index.html">
+                    <i class="fa-solid fa-house"></i>
+                    Home
+                </a>
+            </li>
+
+            <li class="dropdown">
+                <a href="#" class="nav-other dropdown-toggle">
+                    <i class="fa-solid fa-briefcase"></i>
+                    Category Roles
+                    <i class="fa-solid fa-chevron-down"></i>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="web-development.html">Web Developer</a></li>
+                    <li><a href="mobile-development.html">Mobile Development</a></li>
+                    <li><a href="AIML.html">AI & Machine Learning</a></li>
+                    <li><a href="data-Analytics.html">Data & Analytics</a></li>
+                    <li><a href="UX_UX.html">UI/UX Design</a></li>
+                    <li><a href="cyber.html">Cybersecurity</a></li>
+                    <li><a href="cloud&DevOps.html">Cloud & DevOps</a></li>
+                    <li><a href="game-de.html">Game Development</a></li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+
+    <!-- ============ HERO SECTION ============ -->
+    <div class="hero">
+        <h1>Cybersecurity</h1>
+        <p>Protect digital assets and systems. Master Security Analysis, Ethical Hacking, Network Security, and Threat
+            Management.</p>
+    </div>
+
+    <!-- ============ MAIN CONTAINER ============ -->
+    <div class="container">
+
+        <!-- ============ CAREER PATHS ============ -->
+        <section id="careers">
+            <h2>Choose Your Career Path</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <h3>Security Analyst</h3>
+                    <p>Monitor systems and networks to detect security threats and vulnerabilities.</p>
+                    <ul class="tech-list">
+                        <li>SIEM Tools</li>
+                        <li>Threat Detection</li>
+                        <li>Network Analysis</li>
+                        <li>Log Management</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Ethical Hacker</h3>
+                    <p>Test systems for vulnerabilities to improve security before attackers find them.</p>
+                    <ul class="tech-list">
+                        <li>Penetration Testing</li>
+                        <li>Vulnerability Assessment</li>
+                        <li>Security Tools</li>
+                        <li>Exploit Development</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Security Engineer</h3>
+                    <p>Design, implement, and maintain security systems and infrastructure.</p>
+                    <ul class="tech-list">
+                        <li>Firewalls & IDS/IPS</li>
+                        <li>Encryption</li>
+                        <li>Architecture Design</li>
+                        <li>Cloud Security</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ DETAILED ROLES ============ -->
+        <section>
+            <h2>Security Analyst Details</h2>
+            <div class="role-info">
+                <h4>What You'll Do</h4>
+                <p>You monitor and analyze security events across networks and systems. You identify potential threats,
+                    respond to incidents, and create security reports to protect organizational assets.</p>
+            </div>
+
+            <div class="role-info">
+                <h4>Skills Required</h4>
+                <ul>
+                    <li>SIEM Tools - Splunk, ELK, Sumo Logic</li>
+                    <li>Network Analysis - Wireshark, tcpdump</li>
+                    <li>Threat Detection & Analysis - IDS/IPS</li>
+                    <li>Linux & Windows - OS knowledge</li>
+                    <li>Scripting - Python, Bash</li>
+                </ul>
+            </div>
+
+            <div class="salary-box">
+                <div class="label">Average Salary (India)</div>
+                <div class="amount">₹5 - 12 LPA</div>
+            </div>
+
+            <div class="role-info">
+                <h4>Top Job Roles</h4>
+                <ul>
+                    <li>Junior Security Analyst</li>
+                    <li>SOC Analyst</li>
+                    <li>Threat Intelligence Analyst</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Ethical Hacker Details</h2>
+            <div class="role-info">
+                <h4>What You'll Do</h4>
+                <p>You conduct penetration tests and vulnerability assessments to identify security weaknesses. You work
+                    with companies to find and document vulnerabilities before malicious actors can exploit them.</p>
+            </div>
+
+            <div class="role-info">
+                <h4>Skills Required</h4>
+                <ul>
+                    <li>Penetration Testing - Methodology & Tools</li>
+                    <li>Kali Linux - Hacking Operating System</li>
+                    <li>Security Tools - Metasploit, Burp Suite, Nmap</li>
+                    <li>Programming - Python, C, Java</li>
+                    <li>Web Security - OWASP Top 10</li>
+                </ul>
+            </div>
+
+            <div class="salary-box">
+                <div class="label">Average Salary (India)</div>
+                <div class="amount">₹6 - 15 LPA</div>
+            </div>
+
+            <div class="role-info">
+                <h4>Top Job Roles</h4>
+                <ul>
+                    <li>Ethical Hacker / Penetration Tester</li>
+                    <li>Security Researcher</li>
+                    <li>Vulnerability Assessor</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Security Engineer Details</h2>
+            <div class="role-info">
+                <h4>What You'll Do</h4>
+                <p>You design and implement comprehensive security solutions. You architect security systems, manage
+                    firewalls, deploy encryption, and ensure systems follow security best practices.</p>
+            </div>
+
+            <div class="role-info">
+                <h4>Skills Required</h4>
+                <ul>
+                    <li>Network Security - Firewalls, VPN, IDS/IPS</li>
+                    <li>Cloud Security - AWS, Azure, GCP security</li>
+                    <li>Encryption & Cryptography - PKI, SSL/TLS</li>
+                    <li>Security Architecture - Design & Implementation</li>
+                    <li>Compliance - GDPR, HIPAA, PCI-DSS</li>
+                </ul>
+            </div>
+
+            <div class="salary-box">
+                <div class="label">Average Salary (India)</div>
+                <div class="amount">₹8 - 20 LPA</div>
+            </div>
+
+            <div class="role-info">
+                <h4>Top Job Roles</h4>
+                <ul>
+                    <li>Security Engineer</li>
+                    <li>Cloud Security Engineer</li>
+                    <li>Infrastructure Security Engineer</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ============ SKILLS COMPARISON ============ -->
+        <section>
+            <h2>Skills Comparison Table</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Skills</th>
+                            <th>Security Analyst</th>
+                            <th>Ethical Hacker</th>
+                            <th>Security Engineer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Network Knowledge</td>
+                            <td class="checkmark">✓</td>
+                            <td class="checkmark">✓</td>
+                            <td class="checkmark">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Linux / Windows</td>
+                            <td class="checkmark">✓</td>
+                            <td class="checkmark">✓</td>
+                            <td class="checkmark">✓</td>
+                        </tr>
+                        <tr>
+                            <td>SIEM Tools</td>
+                            <td class="checkmark">✓</td>
+                            <td class="cross">✗</td>
+                            <td class="cross">✗</td>
+                        </tr>
+                        <tr>
+                            <td>Penetration Testing</td>
+                            <td class="cross">✗</td>
+                            <td class="checkmark">✓</td>
+                            <td class="checkmark">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Security Tools (Metasploit, Burp)</td>
+                            <td class="cross">✗</td>
+                            <td class="checkmark">✓</td>
+                            <td class="checkmark">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Threat Detection & Analysis</td>
+                            <td class="checkmark">✓</td>
+                            <td class="checkmark">✓</td>
+                            <td class="checkmark">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Programming (Python/C)</td>
+                            <td class="checkmark">✓</td>
+                            <td class="checkmark">✓</td>
+                            <td class="checkmark">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Architecture & Design</td>
+                            <td class="cross">✗</td>
+                            <td class="cross">✗</td>
+                            <td class="checkmark">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Cloud Security (AWS/Azure)</td>
+                            <td class="checkmark">✓</td>
+                            <td class="checkmark">✓</td>
+                            <td class="checkmark">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Cryptography & Encryption</td>
+                            <td class="cross">✗</td>
+                            <td class="checkmark">✓</td>
+                            <td class="checkmark">✓</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ============ ROADMAP ============ -->
+        <section id="roadmap">
+            <h2>Cybersecurity Learning Roadmap</h2>
+            <div class="roadmap-list">
+                <h3>Step-by-Step Learning Path</h3>
+                <ol>
+                    <li><strong>Month 1-2:</strong> Learn networking fundamentals - TCP/IP, OSI Model, DNS, HTTP</li>
+                    <li><strong>Month 2-3:</strong> Learn Linux & Windows administration - command line, users,
+                        permissions</li>
+                    <li><strong>Month 3-4:</strong> Study security basics - cryptography, authentication, encryption
+                    </li>
+                    <li><strong>Month 4-5:</strong> Choose specialization - learn SIEM, Penetration Testing, or
+                        Architecture</li>
+                    <li><strong>Month 5-6:</strong> Get hands-on with security tools - Wireshark, Kali Linux, Burp Suite
+                    </li>
+                    <li><strong>Month 6-7:</strong> Build projects & lab environments - set up home labs, do practice
+                        tests</li>
+                    <li><strong>Month 7+:</strong> Get certified & specialize - CompTIA, CEH, OSCP certifications</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ============ TECHNOLOGIES ============ -->
+        <section id="resources">
+            <h2>Popular Security Tools & Technologies</h2>
+            <div class="tech-grid">
+                <div class="tech-item">Kali Linux</div>
+                <div class="tech-item">Metasploit</div>
+                <div class="tech-item">Wireshark</div>
+                <div class="tech-item">Burp Suite</div>
+                <div class="tech-item">Nmap</div>
+                <div class="tech-item">Splunk</div>
+                <div class="tech-item">Snort/Suricata</div>
+                <div class="tech-item">OWASP</div>
+                <div class="tech-item">Hashcat</div>
+                <div class="tech-item">Nikto</div>
+                <div class="tech-item">John the Ripper</div>
+                <div class="tech-item">AWS Security</div>
+            </div>
+        </section>
+
+        <!-- ============ PROJECT IDEAS ============ -->
+        <section>
+            <h2>Project Ideas to Practice</h2>
+            <div class="projects-grid">
+                <div class="project-item">Vulnerability Scan</div>
+                <div class="project-item">Penetration Test Report</div>
+                <div class="project-item">Network Sniffer</div>
+                <div class="project-item">Password Cracker</div>
+                <div class="project-item">Malware Analysis</div>
+                <div class="project-item">Firewall Configuration</div>
+                <div class="project-item">Threat Hunting Lab</div>
+                <div class="project-item">Security Audit</div>
+            </div>
+        </section>
+
+        <section class="resources">
+
+            <h3>📚 Free Learning Resources</h3>
+
+            <ul>
+                <li><a href="https://www.offensive-security.com/" target="_blank">Offensive Security</a></li>
+
+                <li><a href="https://www.elearnsecurity.com/" target="_blank">eLearnsecurity</a></li>
+
+                <li><a href="https://www.hackthebox.com/" target="_blank">HackTheBox</a></li>
+
+                <li><a href="https://tryhackme.com/" target="_blank">TryHackMe</a></li>
+
+                <li><a href="https://owasp.org/" target="_blank">OWASP</a></li>
+            </ul>
+
+            <h3>🎥 Free Video Tutorials</h3>
+
+            <ul>
+                <li><a href="https://www.youtube.com/@JohnHammondSec" target="_blank">John Hammond</a></li>
+
+                <li><a href="https://www.youtube.com/@IppSec" target="_blank">IppSec</a></li>
+
+                <li><a href="https://www.youtube.com/@PentesterAcademyTV" target="_blank">Pentester Academy</a></li>
+
+                <li><a href="https://www.youtube.com/@NetworkChuck" target="_blank">NetworkChuck</a></li>
+
+                <li><a href="https://www.youtube.com/@StrykerHS" target="_blank">Stryker</a></li>
+            </ul>
+
+        </section>
+
+        <!-- ============ FAQ ============ -->
+        <section id="faq">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <h4>What is Security Analysis?</h4>
+                <p>Security Analysis involves monitoring systems and networks for threats, analyzing security events,
+                    and creating reports. Security Analysts work in Security Operations Centers (SOC) to detect and
+                    respond to incidents.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>What is Ethical Hacking?</h4>
+                <p>Ethical Hacking is authorized security testing where professionals attempt to break into systems
+                    legally to find vulnerabilities before malicious hackers can. It requires permission and is done to
+                    improve security.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>What is a Security Engineer?</h4>
+                <p>Security Engineers design and implement security solutions. They build secure infrastructure,
+                    implement firewalls, manage encryption, and ensure systems follow security best practices and
+                    compliance standards.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Do I need certifications to start a cybersecurity career?</h4>
+                <p>Certifications help, but practical experience is more important. Start with CompTIA Security+, CEH,
+                    or OSCP. Entry-level roles focus on skills and projects. Certifications become more important as you
+                    advance.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>How long does it take to learn cybersecurity?</h4>
+                <p>Basics take 3-4 months. Job-ready skills take 6-12 months of focused study and practice. Becoming
+                    specialized typically takes 1-2 years. Continuous learning is essential as threats evolve.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>What's the average salary of a cybersecurity professional in India?</h4>
+                <p>Fresher analysts earn ₹3-6 LPA. Mid-level professionals earn ₹10-18 LPA. Senior roles earn ₹20-40+
+                    LPA. Salary depends on role, experience, certifications, and company size.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Is cybersecurity a good career choice?</h4>
+                <p>Yes! Cybersecurity has high demand, excellent salaries, remote opportunities, and job security. With
+                    increasing cyber threats, security professionals are always needed. It's a rewarding and challenging
+                    career.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>What should I learn first - networking, Linux, or security?</h4>
+                <p>Start with networking fundamentals (TCP/IP, DNS). Then learn Linux administration. Finally, dive into
+                    security concepts. A strong foundation in networking is essential for cybersecurity success.</p>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <div class="footer-container">
+
+            <div class="footer-box">
+                <div class="U">
+                    <h2>Tech Career</h2>
+                    <p>
+                        Discover technology careers, explore learning paths,
+                        and build your future in the tech industry.
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer-box">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">➤ Home</a></li>
+                    <li><a href="index.html">➤ Careers</a></li>
+                    <li><a href="index.html">➤ Roadmaps</a></li>
+                    <li><a href="index.html">➤ Resources</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-box">
+                <h3>Specializations</h3>
+                <ul>
+                    <li><a href="web-development.html">➤ Web Development</a></li>
+                    <li><a href="mobile-development.html">➤ Mobile Development</a></li>
+                    <li><a href="AIML.html">➤ AI & ML</a></li>
+                    <li><a href="data-Analytics.html">➤ Data & Analytics</a></li>
+                    <li><a href="UX_UX.html">➤ UI/UX Design</a></li>
+                    <li><a href="cyber.html">➤ Cybersecurity</a></li>
+                    <li><a href="cloud&DevOps.html">➤ Cloud & DevOps</a></li>
+                    <li><a href="game-de.html">➤ Game Development</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-box">
+                <h3>Contact</h3>
+                <ul>
+                    <li><i class="fa-solid fa-envelope"></i> : <a
+                            href="mailto:rk8938273@gmail.com">rk8938273@gmail.com</a></li>
+                    <li><i class="fa-solid fa-phone"></i> : <a href="tel:+919876543210">+91 9876543210</a></li>
+                    <li><i class="fa-brands fa-github"></i> : <a href="https://github.com/Ravindra1807">Ravindra1807</a>
+                    </li>
+                    <li><i class="fa-brands fa-linkedin"></i> : <a
+                            href="https://www.linkedin.com/in/ravindra-kumar-a95761385">Ravindra Kumar</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Tech Career Explorer. All Rights Reserved. | Developed by Ravindra Kumar</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.querySelector(".menu-btn");
+        const navLinks = document.querySelector("#navLinks");
+        const dropdowns = document.querySelectorAll(".dropdown");
+
+        // Mobile hamburger toggle
+        menuBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            navLinks.classList.toggle("active");
+        });
+
+        // Close navbar + all dropdowns on outside click
+        document.addEventListener("click", (e) => {
+            if (!navLinks.contains(e.target) && !menuBtn.contains(e.target)) {
+                navLinks.classList.remove("active");
+                dropdowns.forEach((d) => d.classList.remove("open"));
+            }
+        });
+
+        // Dropdown toggle — 1 click open, same click close
+        dropdowns.forEach((dropdown) => {
+            const toggle = dropdown.querySelector(".dropdown-toggle");
+
+            toggle.addEventListener("click", (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+
+                const isOpen = dropdown.classList.contains("open");
+
+                // close all first
+                dropdowns.forEach((d) => d.classList.remove("open"));
+
+                // toggle this one
+                if (!isOpen) dropdown.classList.add("open");
+            });
+        });
+
+        // Clicks inside dropdown-menu don't close it
+        document.querySelectorAll(".dropdown-menu").forEach((menu) => {
+            menu.addEventListener("click", (e) => e.stopPropagation());
+        });
+    </script>
+
+
+</body>
+
+</html>
