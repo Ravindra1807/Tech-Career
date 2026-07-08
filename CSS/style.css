@@ -555,6 +555,7 @@ header {
 /* ===== FOOTER ===== */
 .footer {
     background: #020617;
+    font-size: 16px;
     padding-top: 50px;
     border-top: 1px solid rgba(255, 255, 255, .1);
 
@@ -817,14 +818,16 @@ header {
     /* HERO */
     .hero-section {
         padding: 100px 8px 50px;
+        margin-left: 0px;
+        margin-right: 0px;
     }
 
     .hero {
-        margin: 0 10px;
+        margin: 0 20px;
     }
 
     .hero h1 {
-        font-size: 5vw;
+        font-size: 6vw;
         margin-bottom: 12px;
     }
 
