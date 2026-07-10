@@ -208,7 +208,7 @@
 
  .dropdown-menu li a:hover,
  .dropdown-menu li a:active {
-    background-color: #37ff00;
+    background-color: #ff2d95;
     color: #000000;
  }
 
@@ -235,8 +235,8 @@
      font-size: 48px;
      font-family: "DM Serif Display", serif;
      margin-bottom: 20px;
-     color: #37ff00;
-     border-bottom: 1px solid #37ff00;
+     color: #ff2d95;
+     border-bottom: 1px solid #ff2d95;
 
 
  }
@@ -248,7 +248,7 @@
 
  .hero-button {
      background-color: white;
-     color: #37ff00;
+     color: #ff2d95;
      padding: 12px 30px;
      border: none;
      font-size: 16px;
@@ -279,12 +279,12 @@
      font-size: 32px;
      margin-bottom: 30px;
      text-align: center;
-     border-bottom: 3px solid #37ff00;
+     border-bottom: 3px solid #ff2d95;
      padding-bottom: 15px;
  }
 
  h3 {
-     color: #37ff00;
+     color: #ff2d95;
      text-shadow: 1px 1px 1px #3b3838;
      font-size: 22px;
      margin-top: 20px;
@@ -301,15 +301,15 @@
  }
 
  .card {
-     background-color: rgb(207, 222, 228);
-     border: 1px solid #727475cb;
+     background-color: #f8deeb;
+     border: 1px solid #ff77b7;
      padding: 20px;
      border-radius: 5px;
      text-align: center;
  }
 
  .card h3 {
-     color: #87f369;
+     color: #ff2d95;
      text-shadow: 1px 1px 2px #000000;
      margin-top: 0;
  }
@@ -326,7 +326,7 @@
 
  .tech-list li {
      background-color: #e7f3ff;
-     border-left: 4px solid #37ff00;
+     border-left: 4px solid #ff2d95;
      padding: 8px 12px;
      margin: 5px 0;
      border-radius: 3px;
@@ -337,12 +337,12 @@
      background-color: #b9cddd;
      padding: 20px;
      margin: 20px 0;
-     border-left: 5px solid #37ff00;
+     border-left: 5px solid #ff2d95;
      border-radius: 3px;
  }
 
  .role-info h4 {
-     color: #37ff00;
+     color: #ff2d95;
      text-shadow: 1px 1px 1px #383a3c;
      margin-bottom: 15px;
  }
@@ -357,7 +357,7 @@
  }
 
  .salary-box {
-     background-color: #37ff00;
+     background-color: #ff2d95;
      color: #020617;
      padding: 20px;
      margin: 15px 0;
@@ -391,12 +391,12 @@
  }
 
  .table-wrapper::-webkit-scrollbar-thumb {
-     background: #37ff00;
+     background: #ff2d95;
      border-radius: 10px;
  }
 
  .table-wrapper::-webkit-scrollbar-thumb:hover {
-     background: #37ff00;
+     background: #ff2d95;
  }
 
  table {
@@ -407,7 +407,7 @@
  }
 
  table thead {
-     background-color: #37ff00;
+     background-color: #ff2d95;
      color: #0B1220;
  }
 
@@ -455,8 +455,8 @@
  .roadmap-list li {
      margin: 15px 0;
      padding: 10px;
-     background-color: #c0ecbe;
-     border-left: 4px solid #37ff00;
+     background-color: #f8deeb;
+     border-left: 4px solid #ff2d95;
      padding-left: 15px;
      border-radius: 3px;
  }
@@ -473,15 +473,15 @@
      background-color: #f0f0f0;
      padding: 20px;
      text-align: center;
-     border: 1px solid #ddd;
+     border: 1px solid #f8deeb;
      border-radius: 5px;
      font-weight: bold;
-     color: #37ff00;
+     color: #ff2d95;
      text-shadow: 1px 1px 2px #4d729a;
  }
 
  .tech-item:hover {
-     background-color: #37ff00;
+     background-color: #ff2d95;
      color: white;
  }
 
@@ -494,18 +494,18 @@
  }
 
  .project-item {
-     background-color: #e7f3ff;
+     background-color: #fcf5f9;
      padding: 20px;
-     border: 1px solid #31482b;
+     border: 1px solid #f8deeb;
      border-radius: 5px;
      text-align: center;
-     color: #37ff00;
+     color: #ff2d95;
      text-shadow: 1px 1px 2px #000000;
      font-weight: bold;
  }
 
  .project-item:hover {
-     background-color: #37ff00;
+     background-color: #ff2d95;
      color: white;
  }
 
@@ -515,13 +515,13 @@
      background: #fff;
      padding: 25px;
      margin-top: 30px;
-     border-radius: 12px;
+     border-radius: 5px;
      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
  }
 
  .resources h3 {
      margin-bottom: 15px;
-     color: #37ff00;
+     color: #ff2d95;
      font-size: 1.3rem;
  }
 
@@ -543,11 +543,11 @@
      display: block;
      text-decoration: none;
      color: #333;
-     background: #dcfad4;
+     background: #f8deeb;
      padding: 12px 15px;
      border-radius: 8px;
-     border-left: 4px solid #37ff00;
-     border-right: 4px solid #37ff00;
+     border-left: 4px solid #ff2d95;
+     border-right: 4px solid #ff2d95;
      transition: all 0.3s ease;
  }
 
@@ -557,15 +557,15 @@
 
  /* ============ FAQ ============ */
  .faq-item {
-     background-color: #e6fae0;
+     background-color: #ffeef7;
      padding: 15px;
      margin: 15px 0;
-     border-left: 4px solid #37ff00;
+     border-left: 4px solid #ff2d95;
      border-radius: 3px;
  }
 
  .faq-item h4 {
-     color: #37ff00;
+     color: #ff2d95;
      text-shadow: 1px 1px 2px #2d2e2f;
      cursor: pointer;
      margin-bottom: 10px;
@@ -599,7 +599,7 @@
  .footer-box h3,
  .footer-box h2 {
      margin-bottom: 15px;
-     color: #37ff00;
+     color: #ff2d95;
  }
 
  .footer-box .U h2 {
@@ -634,7 +634,7 @@
  }
 
  .footer-box a:hover {
-     color: #37ff00;
+     color: #ff2d95;
  }
 
  .footer-bottom {
