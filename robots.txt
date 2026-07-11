@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ravindra1807.github.io/Tech-Career/sitemap.xml
