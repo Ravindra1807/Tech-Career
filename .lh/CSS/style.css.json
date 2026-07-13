@@ -3,11 +3,15 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 1,
             "patches": [
                 {
                     "date": 1783654054082,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1783907177341,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -281,10 +281,10 @@\n     -webkit-text-fill-color: transparent;\r\n }\r\n \r\n .button {\r\n+   \r\n \r\n-\r\n     font-size: 12px;\r\n     font-family: 'Courier New', Courier, monospace;\r\n     font-weight: 400;\r\n     margin-top: 10px;\r\n@@ -294,10 +294,10 @@\n     padding: 10px 20px;\r\n     background-color: #2563eb;\r\n     border-radius: 10px;\r\n     text-decoration: none;\r\n-    color: #292a2b;\r\n-    text-shadow: 2px 2px 2px #90969e;\r\n+    color: #c6c9cb;\r\n+    text-shadow: 1px 1px 1px #000000;\r\n }\r\n \r\n .left-button:active {\r\n     background-color: #dad8d8;\r\n"
                 }
             ],
             "date": 1783654054082,

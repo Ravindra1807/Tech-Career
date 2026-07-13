@@ -282,7 +282,7 @@ header {
 }
 
 .button {
-
+   
 
     font-size: 12px;
     font-family: 'Courier New', Courier, monospace;
@@ -295,8 +295,8 @@ header {
     background-color: #2563eb;
     border-radius: 10px;
     text-decoration: none;
-    color: #292a2b;
-    text-shadow: 2px 2px 2px #90969e;
+    color: #c6c9cb;
+    text-shadow: 1px 1px 1px #000000;
 }
 
 .left-button:active {
